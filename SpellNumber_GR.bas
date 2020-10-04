@@ -94,6 +94,8 @@ Case "¸íá"
 Cents = " και ¸Ένα Λεπτό"
 
 Case Else
+        
+If Right$(Cents, 1) = " " Then Cents = Left$(Cents, Len(Cents) - 1)
 
 Cents = " και " & Cents & " Λεπτά"
 
