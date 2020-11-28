@@ -76,6 +76,10 @@ Euros = "Ένα Ευρώ"
 
 Case Else
 
+Temp = Left$(Euros, 12)
+
+If Temp = "Ένα Χιλιάδες" Then Euros = "Χίλια " & Mid(Euros, 14, Len(Euros))
+
 If Right$(Euros, 1) = " " Then Euros = Left$(Euros, Len(Euros) - 1)
 
 Euros = Euros & " Ευρώ"
@@ -89,12 +93,12 @@ Case ""
 'Cents = " και Μηδέν Λεπτά"
 Cents = ""
 
-Case "¸íá"
+Case "Ένα"
 
-Cents = " και ¸Ένα Λεπτό"
+Cents = " και Ένα Λεπτό"
 
 Case Else
-        
+
 If Right$(Cents, 1) = " " Then Cents = Left$(Cents, Len(Cents) - 1)
 
 Cents = " και " & Cents & " Λεπτά"
@@ -120,7 +124,7 @@ MyNumber = Right("000" & MyNumber, 3)
 
 If Mid(MyNumber, 1, 1) <> "0" Then
 
-'Result = GetDigit(Mid(MyNumber, 1, 1)) & " Åêáôü "
+'Result = GetDigit(Mid(MyNumber, 1, 1)) & " Εκατό "
 
 Select Case Mid(MyNumber, 1, 1)
 
@@ -133,8 +137,6 @@ Case 3: Result = "Τριακόσια "
 Case 4: Result = "Τετρακόσια "
 
 Case 5: Result = "Πεντακόσια "
-
-Case 6: Result = "Εξακόσια "
 
 Case 7: Result = "Επτακόσια "
 
@@ -210,15 +212,15 @@ Case 3: Result = "Τριάντα "
 
 Case 4: Result = "Σαράντα "
 
-Case 5: Result = "Πέντε "
+Case 5: Result = "Πενήντα "
 
-Case 6: Result = "Έξι "
+Case 6: Result = "Εξήντα "
 
-Case 7: Result = "Επτά "
+Case 7: Result = "Εβδομήντα "
 
-Case 8: Result = "Οκτώ "
+Case 8: Result = "Ογδόντα "
 
-Case 9: Result = "Εννέα "
+Case 9: Result = "Εννενήντα "
 
 Case Else
 
@@ -251,11 +253,11 @@ Case 5: GetDigit = "Πέντε"
 
 Case 6: GetDigit = "Έξι"
 
-Case 7: GetDigit = "ÅðôÜ"
+Case 7: GetDigit = "Επτά"
 
-Case 8: GetDigit = "Επτέ"
+Case 8: GetDigit = "Οκτώ"
 
-Case 9: GetDigit = "Οκτώ"
+Case 9: GetDigit = "Εννέα"
 
 Case Else: GetDigit = ""
 
